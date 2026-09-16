@@ -1,4 +1,10 @@
 # CP01_chatbot_nutricao
+#Nomes- RM:
+#Otavio Mancilia- 570225
+#Wesley Marques- 573915
+#Tiago Muhlmann- 569569
+#Gabriela Angel- 570808
+#Marcos Sampaio- 573987
 
 # Justificativa da memória
 
