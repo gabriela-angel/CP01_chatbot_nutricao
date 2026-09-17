@@ -104,8 +104,8 @@ usuário a planejar refeições, entender valores calóricos aproximados e
 receber sugestões de cardápio de acordo com suas preferências e
 restrições alimentares (ex.: vegetariano, vegano, low carb, sem glúten,
 sem lactose, diabético). O chatbot mantém contexto conversacional via
-`ConversationBufferMemory`, preservando o histórico completo da conversa
-— o que é especialmente importante em nutrição, já que preferências e
+`ConversationBufferMemory`, preservando o histórico completo da conversa,
+o que é especialmente importante em nutrição, já que preferências e
 restrições podem mudar ou ser refinadas ao longo da conversa (ex.: o
 usuário primeiro diz que é vegetariano e depois acrescenta que também
 não pode comer glúten).
@@ -120,14 +120,14 @@ Além disso, é um domínio com alto potencial de "context rot" real e
 mensurável: à medida que a conversa cresce (múltiplas restrições,
 preferências e histórico de refeições), fica mais fácil demonstrar a
 degradação de qualidade nas respostas quando o contexto não é bem
-gerenciado — o que atende diretamente ao requisito técnico do CKP01.
+gerenciado, o que atende diretamente ao requisito técnico do CKP01.
 
 **Pra quem?** O público-alvo é qualquer pessoa que queira organizar sua
 alimentação no dia a dia sem depender exclusivamente de uma consulta
-presencial — por exemplo, estudantes e profissionais com rotina corrida
+presencial, por exemplo, estudantes e profissionais com rotina corrida
 que precisam de sugestões rápidas de refeições, pessoas com restrições
 alimentares que buscam praticidade na hora de substituir ingredientes, e
 usuários que estão começando a se organizar nutricionalmente e querem um
 ponto de partida educativo. O NutriBot não substitui um nutricionista ou
-médico — ele é uma ferramenta de apoio e educação alimentar, deixando
+médico, ele é uma ferramenta de apoio e educação alimentar, deixando
 claro esse limite em sua persona e em suas restrições de resposta.
