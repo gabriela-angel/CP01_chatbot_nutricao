@@ -10,6 +10,29 @@
 | Gabriela Angel | 570808 |
 | Marcos Sampaio | 573987 |
 
+**Peso: 25% · Checkpoint 01 · Disciplina: Prompt Engineering and Artificial
+Intelligence · FIAP · 2º Semestre 2026**
+
+## Requisitos atendidos
+
+| Requisito | Status | Implementação |
+|---|---|---|
+| Pipeline LCEL | ✅ | `chain.py` — `extraction_prompt \| llm \| parser` |
+| ChatOllama | ✅ | `gemma4:cloud` via Ollama Cloud, chave em `.env` |
+| Memória gerenciada | ✅ | `ConversationChain` + `ConversationBufferMemory` (`memory_manager.py`), justificada abaixo |
+| Pydantic v2 (≥4 campos) | ✅ | `PlanoRefeicao` com 5 campos tipados em `schemas.py` |
+| Context rot | ✅ | `context_rot.py` — tabela/gráfico com janelas de 0/5/10/15/20 turnos |
+| System prompt com persona | ✅ | XML tagging (`<persona>`, `<restricoes>`, `<formato>`) em `prompts.py` |
+| Domínio documentado | ✅ | Seção "Domínio" abaixo |
+
+## Como executar (local — sem Colab)
+
+```bash
+cp .env.example .env         # depois edite com sua OLLAMA_API_KEY real
+pip install -r requirements.txt
+python -m app.main           # abre em http://localhost:7860
+```
+
 ## Justificativa da memória
 
 O chatbot utiliza a estratégia `ConversationBufferMemory` para o
@@ -72,7 +95,7 @@ mantido e utilizado pela `ConversationChain`.
 
 **Observação:** os testes foram realizados após pelo menos 5 turnos de
 conversa prévia, para validar que a persona se mantém estável mesmo com
-histórico acumulado na memória (TokenBuffer).
+histórico acumulado na memória (`ConversationBufferMemory`).
 
 ## Domínio
 
@@ -81,7 +104,7 @@ usuário a planejar refeições, entender valores calóricos aproximados e
 receber sugestões de cardápio de acordo com suas preferências e
 restrições alimentares (ex.: vegetariano, vegano, low carb, sem glúten,
 sem lactose, diabético). O chatbot mantém contexto conversacional via
-memória TokenBuffer, priorizando as informações mais recentes do usuário
+`ConversationBufferMemory`, preservando o histórico completo da conversa
 — o que é especialmente importante em nutrição, já que preferências e
 restrições podem mudar ou ser refinadas ao longo da conversa (ex.: o
 usuário primeiro diz que é vegetariano e depois acrescenta que também
